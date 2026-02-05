@@ -1,0 +1,548 @@
+Types of shell:
+
+1.sh
+2.bash
+3.zsh
+
+
+
+Bash (Default shell)
+bin - (Binary files)
+
+#!|bin|bash   - this format wherever we see it is script
+[  #!- Shibang ,bin/bash - Shell ]
+.sh - to run file
+    - Execute
+
+To run file
+
+bash filename
+./ my file(any File name)
+
+commands:
+
+1.ls - list all
+2.mkdir script 
+3.cd script/
+4.touch file{1..5}.sh ----- Press expansion to make n number of file 
+5.sudo chmod u+x file{1..5}.sh ---- gave the excutive permission for file {1..5} it will show in green when will do ls
+6.ls
+7.ls.l
+
+To run file Command
+
+vi f1.sh  ----created file using VMware
+Data :
+
+#!|bin|bash  --- always this command should be in start
+
+echo "Helllooo I am Tanvii"
+
+2. bash f1.sh 
+Output:
+Helllooo I am Tanvii
+
+3. cat f1.sh
+
+
+To give Some command and run to execute 
+
+1.vi f1.sh
+Data:
+
+#!|bin|bash
+echo "Helllooo I am Tanvii"
+echo "Today's date is $(Date)"
+echo "my working dir is $(pwd)"
+
+2.bash f1.sh
+Output:
+Helllooo I am Tanvii
+Today's date is Sun Feb  1 13:18:49 UTC 2026
+my working dir /home/ubuntu/script
+
+3.cat f1.sh
+
+output:
+#!|bin|bash
+
+echo "Helllooo I am Tanvii"
+echo "Today's date is $(date)"
+echo "my working dir $(pwd)"
+
+** Variables 
+ something that stores Value
+
+Variables Commands:
+
+1.vi f1.sh
+
+Data:
+
+#!|bin|bash
+
+name=sanvi
+age=22
+echo "my name is $name  and my age is &age"
+echo "Helllooo I am Tanvii"
+echo "Today's date is $(Date)"
+echo "my working dir is $(pwd)
+
+2.bash f1.sh
+
+
+Output:
+Hellloo my name is tanvi and my age is &age
+Helllooo I am Tanvii
+Today's date is Sun Feb  1 13:26:51 UTC 2026
+my working dir /home/ubuntu/script
+
+
+3.cat f1.sh
+Output:
+#!|bin|bash
+
+
+name=tanvi
+age=22
+
+echo "Hellloo my name is $name and my age is &age"
+echo "Helllooo I am Tanvii"
+echo "Today's date is $(date)"
+echo "my working dir $(pwd)"
+
+**Environment Vairaible ---------Whichever command we have run it should be in capital written
+
+Commands:
+
+1.vi f1.sh
+
+Data :
+
+#!|bin|bash
+
+name=sanvi
+age=22
+
+echo "what is my env variable $PATH and $PWD"
+echo "my name is $name  and my age is &age"
+echo "Helllooo I am Tanvii"
+echo "Today's date is $(Date)"
+echo "my working dir is $(pwd)
+
+2.bash f1.sh
+
+Output:
+
+what is my env vaiables /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin and /home/ubuntu/script
+Hellloo my name is tanvi and my age is &age
+Helllooo I am Tanvii
+Today's date is Sun Feb  1 13:34:14 UTC 2026
+my working dir /home/ubuntu/script
+
+3.cat f1.sh
+
+Output:
+
+#!|bin|bash
+
+
+name=tanvi
+age=22
+
+echo "what is my env vaiables $PATH and $PWD"
+echo "Hellloo my name is $name and my age is &age"
+echo "Helllooo I am Tanvii"
+echo "Today's date is $(date)"
+echo "my working dir $(pwd)"
+
+
+**To give user command to run and read it
+
+1.(New file )
+vi f1.sh
+
+Data:
+#!|bin|bash
+
+echo "enter your name:"
+read name
+
+read -p "give me the file name:" file
+echo "print $name"
+
+
+cat $file
+
+2.bash f2.sh -------- As per existing file names it wil show output
+
+output:
+enter your name:
+Tanvi
+give me the file name:f1.sh
+print Tanvi
+#!|bin|bash
+
+
+name=tanvi
+age=22
+
+echo "what is my env vaiables $PATH and $PWD"
+echo "Hellloo my name is $name and my age is &age"
+echo "Helllooo I am Tanvii"
+echo "Today's date is $(date)"
+echo "my working dir $(pwd)"
+
+3.cat f1.sh
+
+
+**Another One For Directory and all also to list all
+
+1.vi f3.sh
+Data :
+#!|bin|bash
+
+
+echo "enter your name:"
+read name
+
+read -p "give me the dir:" file
+echo "print $name"
+
+
+ls $file
+
+
+
+
+2.bash f3.sh
+
+Output:
+
+enter your name:
+Tanvi
+give me the dir:f2.sh
+print Tanvi
+f2.sh
+
+
+** Error bash Scripting commands
+
+-x  ------ the code 
+
+*vi f4.sh ---- file
+ 
+*bash f4.sh
+
+Output
+
++ echo 'this debug the script '
+this debug the script
++ name=tanvi
++ age=22
++ echo 'Helloo My name is tanvi and my age is 22'
+Helloo My name is tanvi and my age is 22
+
+*cat f4.sh
+Output:
+#!/bin/bash
+
+set -x
+echo "this debug the script "
+
+name=tanvi
+age=22
+
+echo "Helloo My name is $name and my age is $age"
+
+2. -e (If there is error in line it will not print next line until error is not solved
+
+vi f5.sh------new file
+Data:
+#!/bin/bash
+#
+set -e
+
+echo "this help to run the code "
+mkrid new
+
+echo "this script didn't run much as its will get stop when there is erro in the script":
+
+2. bash f5.sh
+Output:
+
+this help to run the code
+f5.sh: line 6: mkrid: command not found
+
+3. $? if previous line has no error it will show in text 0 if it as error it will show any number.
+
+
+
+** if and else condition commands
+
+1.vi f6.sh
+
+data:
+#!|bin|bash
+
+
+read -p "enter any number" num
+
+if [ $num -ge 0 ];then
+        echo "num is positive"
+else
+        echo "num is negative"
+
+fi  --------------------------------- always should be end with this 
+
+2.bash f6.sh
+
+Output:
+
+enter any number8
+num is positive
+
+3.cat f6.sh
+
+
+Example :::
+
+
+1.vi f7.sh
+
+Data:
+#!/bin/bash
+
+if cp /etc/passwd /tmp/
+then
+        echo "copy sucessfully"
+else
+        echo "failed"
+fi
+
+2.bash f7.sh
+
+Output:
+copy successfully
+
+**for loop commands
+
+1.vi f8.sh
+
+Data:
+
+#!|bin|bash
+
+
+for i in mum hyd che
+do
+        echo "$i"
+done
+
+
+echo "another loop"
+
+for var in /etc/*.conf
+do
+        echo "file name is $var"
+done
+
+
+2.bash f8.sh
+
+Output:
+mum
+hyd
+che
+another loo
+file name is /etc/adduser.conf
+file name is /etc/ca-certificates.conf
+file name is /etc/debconf.conf
+file name is /etc/deluser.conf
+file name is /etc/dhcpcd.conf
+file name is /etc/e2scrub.conf
+file name is /etc/fuse.conf
+file name is /etc/gai.conf
+file name is /etc/hdparm.conf
+file name is /etc/host.conf
+file name is /etc/ld.so.conf
+file name is /etc/libaudit.conf
+file name is /etc/locale.conf
+file name is /etc/logrotate.conf
+file name is /etc/mke2fs.conf
+file name is /etc/multipath.conf
+file name is /etc/nftables.conf
+file name is /etc/nsswitch.conf
+file name is /etc/overlayroot.conf
+file name is /etc/overlayroot.local.conf
+file name is /etc/pam.conf
+file name is /etc/resolv.conf
+file name is /etc/rsyslog.conf
+file name is /etc/sensors3.conf
+file name is /etc/sudo.conf
+file name is /etc/sudo_logsrvd.conf
+file name is /etc/sysctl.conf
+file name is /etc/ucf.conf
+file name is /etc/usb_modeswitch.conf
+file name is /etc/vconsole.conf
+file name is /etc/xattr.conf
+ubuntu@ip-172-31-20-124:~/script$ vi f8.sh
+ubuntu@ip-172-31-20-124:~/script$ bash f8.sh
+mum
+hyd
+che
+another loop
+file name is /etc/adduser.conf
+file name is /etc/ca-certificates.conf
+file name is /etc/debconf.conf
+file name is /etc/deluser.conf
+file name is /etc/dhcpcd.conf
+file name is /etc/e2scrub.conf
+file name is /etc/fuse.conf
+file name is /etc/gai.conf
+file name is /etc/hdparm.conf
+file name is /etc/host.conf
+file name is /etc/ld.so.conf
+file name is /etc/libaudit.conf
+file name is /etc/locale.conf
+file name is /etc/logrotate.conf
+file name is /etc/mke2fs.conf
+file name is /etc/multipath.conf
+file name is /etc/nftables.conf
+file name is /etc/nsswitch.conf
+file name is /etc/overlayroot.conf
+file name is /etc/overlayroot.local.conf
+file name is /etc/pam.conf
+file name is /etc/resolv.conf
+file name is /etc/rsyslog.conf
+file name is /etc/sensors3.conf
+file name is /etc/sudo.conf
+file name is /etc/sudo_logsrvd.conf
+file name is /etc/sysctl.conf
+file name is /etc/ucf.conf
+file name is /etc/usb_modeswitch.conf
+file name is /etc/vconsole.conf
+file name is /etc/xattr.conf
+
+
+**To call out function in same code 
+
+Commands:
+
+1.vi f8.sh -------------------same file
+
+Data:
+#!|bin|bash
+
+
+for i in mum hyd che
+do
+        echo "$i"
+done
+
+Demo(){
+echo "another loop"
+
+for var in /etc/*.conf
+do
+        echo "file name is $var"
+done
+}
+
+Demo ----------------------------------- Function name
+
+2. bash f8.sh
+
+Output:
+mum
+hyd
+che
+another loop
+file name is /etc/adduser.conf
+file name is /etc/ca-certificates.conf
+file name is /etc/debconf.conf
+file name is /etc/deluser.conf
+file name is /etc/dhcpcd.conf
+file name is /etc/e2scrub.conf
+file name is /etc/fuse.conf
+file name is /etc/gai.conf
+file name is /etc/hdparm.conf
+file name is /etc/host.conf
+file name is /etc/ld.so.conf
+file name is /etc/libaudit.conf
+file name is /etc/locale.conf
+file name is /etc/logrotate.conf
+file name is /etc/mke2fs.conf
+file name is /etc/multipath.conf
+file name is /etc/nftables.conf
+file name is /etc/nsswitch.conf
+file name is /etc/overlayroot.conf
+file name is /etc/overlayroot.local.conf
+file name is /etc/pam.conf
+file name is /etc/resolv.conf
+file name is /etc/rsyslog.conf
+file name is /etc/sensors3.conf
+file name is /etc/sudo.conf
+file name is /etc/sudo_logsrvd.conf
+file name is /etc/sysctl.conf
+file name is /etc/ucf.conf
+file name is /etc/usb_modeswitch.conf
+file name is /etc/vconsole.conf
+file name is /etc/xattr.conf
+
+
+
+** for while loop commands
+
+1.vi while.sh
+
+Data:
+
+#!/bin/bash
+
+count=1
+#
+while [ $count -le 5 ]
+do
+    echo "Count is: $count"
+        count=$((count + 1))
+        done
+
+2.bash while.sh
+
+Output:
+
+Count is: 1
+Count is: 2
+Count is: 3
+Count is: 4
+Count is: 5
+
+
+Homework:
+write a script that will take an in put from the user and install the package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
